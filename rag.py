@@ -60,6 +60,7 @@ def get_qa_chain(_vector_store):
     llm = ChatGroq(
         temperature=0.1,
         model_name="openai/gpt-oss-120b", #OR use llama-3.3-70b-versatile
+        api_key=st.secrets["GROQ_API_KEY"]
     )
 
     prompt_template = """
@@ -135,6 +136,7 @@ if prompt := st.chat_input("Ask a question about your articles..."):
                 error_message = f"An error occurred: {str(e)}"
                 st.error(error_message)
                 st.session_state.messages.append({"role": "assistant", "content": error_message})
+
 
 
 
