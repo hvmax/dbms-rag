@@ -5,6 +5,7 @@
 
 # --- 1. Import Necessary Libraries ---
 import os
+print(f"✅ Current Working Directory: {os.getcwd()}")
 import torch
 import traceback
 import streamlit as st
@@ -136,6 +137,7 @@ if prompt := st.chat_input("Ask a question about your articles..."):
                 error_message = f"An error occurred: {str(e)}"
                 st.error(error_message)
                 st.session_state.messages.append({"role": "assistant", "content": error_message})
+
 
 
 
