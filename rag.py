@@ -43,7 +43,7 @@ def load_components():
     else:
         # One-time setup
         st.info("No existing index found. Building a new one... This may take a few minutes.")
-        loader = DirectoryLoader('./data/', glob="**/*.pdf", show_progress=True)
+        loader = DirectoryLoader('./', glob="**/*.pdf", show_progress=True)
         documents = loader.load()
         text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
         texts = text_splitter.split_documents(documents)
@@ -136,4 +136,5 @@ if prompt := st.chat_input("Ask a question about your articles..."):
                 error_message = f"An error occurred: {str(e)}"
                 st.error(error_message)
                 st.session_state.messages.append({"role": "assistant", "content": error_message})
+
 
