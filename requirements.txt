@@ -6,4 +6,6 @@ langchain-text-splitters
 faiss-cpu
 sentence-transformers
 unstructured
+unstructured[pdf]
 torch
+
